@@ -1,0 +1,44 @@
+{
+  "consumer": {
+    "name": "consumer"
+  },
+  "provider": {
+    "name": "producer"
+  },
+  "interactions": [
+    {
+      "description": "Get",
+      "request": {
+        "method": "POST",
+        "path": "/graphql",
+        "headers": {
+          "content-type": "application/json"
+        },
+        "body": {
+          "query": "query getID($id: ID!) {\n    getID(id: $id) {\n   id\n  }\n }",
+          "variables": {
+            "id": "sample-id"
+          }
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "data": {
+            "get": {
+              "id": "sample-id"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
